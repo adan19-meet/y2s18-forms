@@ -9,5 +9,10 @@ def home():
 @app.route('/student/<int:student_id>')
 def display_student(student_id):
     return render_template('student.html', student=query_by_id(student_id))
-
+@app.route('/add', methods=['GET', 'POST'])
+def add_student_route():
+	if request.method == 'GET':
+		return render_template('home.html')
+	else:
+		return("recieved post request")
 app.run(debug=True)
